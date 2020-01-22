@@ -1,32 +1,43 @@
 package app;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Bookstore {
 
-    private List<Shelf> shelfs;
+    private ArrayList<Shelf> shelfs;
     private String name;
 
     public Bookstore(String name){
         this.name = name;
+        shelfs = new ArrayList<>();
     }
 
-    private void addShelf(Shelf shelf){
-        shelfs.add(shelf);
+    public void addShelf(String title){
+        Shelf newShelf = new Shelf(title);
+        shelfs.add(newShelf);
     }
 
-    private void removeShelf(Shelf shelf){
+    public void addBook(String title, double price, String category){
+        for (Shelf shelf : shelfs){
+            if (shelf.getName().equals(category)){
+                Book book = new Book(title, price, category);
+                shelf.addBook(book);
+            }
+        }
+    }
+
+    public void removeShelf(Shelf shelf){
         shelfs.remove(shelf);
     }
 
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    private List<Book> getShelfFromCategory(String category){
+    public ArrayList<Book> getShelfFromCategory(String category){
         for (Shelf shelf : shelfs){
             if (shelf.getName().equals(category)) return shelf.getBooks();
         }
-        return new List<Book>;
+        return null;
     }
 }

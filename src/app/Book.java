@@ -3,10 +3,10 @@ package app;
 class Book {
 
     private String title;
-    private float price;
+    private double price;
     private String category;
 
-    Book(String title, float price, String category){
+    Book(String title, double price, String category){
         this.title = title;
         this.price = price;
         this.category = category;
@@ -24,15 +24,15 @@ class Book {
         this.category = category;
     }
 
-    private String getTitle() {
+    String getTitle() {
         return title;
     }
 
-    private float getPrice() {
+    double getPrice() {
         return price;
     }
 
-    private String getCategory() {
+    String getCategory() {
         return category;
     }
 }
